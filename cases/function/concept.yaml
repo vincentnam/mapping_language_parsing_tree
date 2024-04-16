@@ -1,0 +1,8 @@
+
+expression:
+  path:
+    path: 'MD_identification.citation'
+    function:
+      function_name: regex
+      function_param: .*
+    path_1: '.title'

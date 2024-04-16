@@ -1,0 +1,24 @@
+digraph  {
+rankdir=LR;
+"0__expression" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=expression, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_name" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_name, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_name__value" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=value, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_param, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_name" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_name, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_name__conversionFunction_euro_dollar" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=conversionFunction_euro_dollar, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_param, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param__path" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=path, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param__path__o2---priceInEuro" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label="o2:priceInEuro", margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression" -> "0__expression__function"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function" -> "0__expression__function__function_name"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function" -> "0__expression__function__function_param"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_name" -> "0__expression__function__function_name__value"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param" -> "0__expression__function__function_param__function"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function" -> "0__expression__function__function_param__function__function_name"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function" -> "0__expression__function__function_param__function__function_param"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_name" -> "0__expression__function__function_param__function__function_name__conversionFunction_euro_dollar"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_param" -> "0__expression__function__function_param__function__function_param__path"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_param__path" -> "0__expression__function__function_param__function__function_param__path__o2---priceInEuro"  [arrowhead=none, key=0, penwidth="2.0"];
+}

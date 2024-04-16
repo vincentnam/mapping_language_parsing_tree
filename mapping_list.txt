@@ -1,0 +1,188 @@
+EDOAL :
+
+
+
+<align:Cell>
+  <align:entity1><Class rdf:about="&insee;Département" /></align:entity1>
+  <align:entity2>
+    <Class>
+      <and rdf:parseType="Collection">
+        <Class rdf:about="&nuts;Region" />
+        <AttributeValueRestriction>
+          <onAttribute>
+            <Relation>
+              <compose rdf:parseType="Collection">
+                <Relation rdf:about="&nuts;hasParentRegion" />
+                <Relation rdf:about="&nuts;hasParentRegion" />
+              </compose>
+            </Relation>
+          </onAttribute>
+          <comparator rdf:resource="&edoal;equals" />
+          <value><Instance rdf:about="&nuts;FR" /></value>
+        </AttributeValueRestriction>
+        <AttributeValueRestriction>
+          <onAttribute>
+            <Property rdf:about="&nuts;level" />
+          </onAttribute>
+          <comparator rdf:resource="&edoal;equals" />
+          <value><Literal edoal:type="&xsd;int" edoal:string="2"/></value>
+        </AttributeValueRestriction>
+      </and>
+    </Class>
+  </align:entity2>
+  <align:relation>=</align:relation>
+</align:Cell>
+
+
+Our mapping langage :
+{ "concepts": {
+    "schemaA": "insee",
+    "schemaB": "nuts",
+    "conceptA": "'&insee;Departement'",
+    "conceptB": "'&nuts;Region'" }
+  "condition":[{
+      "target": "modelB",
+      "operator": "AND",
+      "left": {
+          "left": "\attr('&nuts;Region','&nuts;level')",
+          "operator": "=",
+          "right": 2}
+      "right": {
+          "left": "\value(\instance('&nuts;Region.&nuts;hasParentRegion.&nuts;Region.&nuts;hasParentRegion.&nuts;Region'))",
+          "operator": "=",
+          "right": "\value(\instance('&nuts;FR'))"}],
+  "relation": {"operator": "equal"} }
+
+
+
+
+Complex mapping review :
+
+
+MAPPING 1 : c2 = ∀x,y, o1:priceInDollars(x,y) ≡
+o2:priceInEuro(x,conversionFunction(y))
+
+Our mapping langage :
+
+{
+  "concepts": {
+    "modelA": "o1",
+    "modelB": "o2",
+    "conceptA": "\value('o1:priceInDollars')"
+    "conceptB": "\conversion_dollar_euro(\value('o2:priceInEuro'))"},
+  "condition": {},
+  "relation":
+    {
+        "operator": "equal"
+    }
+  "function":{
+    "conversion_dollar_euro":
+    {
+        "cwlVersion": "v1.2"
+        "class": "CommandLineTool"
+        "baseCommand": "echo"
+        "inputs":
+          "priceInDollars":
+            "type": "integer",
+            "inputBinding":{"position": 1}
+            "valueFrom":" echo \"$(($inputs.o2:priceInEuro*$(curl https://api.freecurrencyapi.com/v1/latest\?apikey\=$API_KEY | jq -r .data.EUR)))\""
+        "outputs": []
+    }
+  }
+}
+
+
+MAPPING 2 :  c3 = ∀x, o3:hasDecision(x,y) ∧ o3:Acceptance(y)
+≡ o1:AcceptedPaper(x) is a (c:s) complex correspondence with constructors. Note that o3:Paper(x)
+is not specified in the left member of the correspondence because o3:Paper is the domain of the
+o3:hasDecision property (c.f. figure 1c). Therefore, o3:Paper(x) is implied in the left member.
+
+Our mapping langage :
+{
+"concepts": {
+    "modelA": "o1",
+    "modelB": "o3",
+    "conceptA": "'o1:AcceptedPaper'"
+    "conceptB": "'o3:Paper'"
+  },
+  "condition": [
+      {
+      "target":"modelB"
+      "operator": "and",
+      "left":
+          {
+            "left": "'o3:hasDecision'",
+            "operator": "exists",
+          },
+      "right":
+          {
+            "left": "'o3:Acceptance'",
+            "operator": "exists",
+          },
+      }
+  ],
+  "relation": {
+    "operator": "equal"
+  }
+}
+
+OAEI crosswalks :
+
+
+1. ISO19115-1 / EOSC/EDMI
+MD_Identification/citation//title  ≡ name
+
+{
+  "concepts": {
+    "modelA": "ISO19115-1",
+    "modelB": "EOSC/EDMI",
+    "conceptA": "'MD_Identification.citation'\regex(.*)'title'"
+    "conceptB": "'name'"
+  },
+  "condition": [],
+  "relation": {
+    "operator": "equal"
+  }
+  "function":{}
+  }
+}
+
+
+2. ISO19115-1 / RIF-CS
+MD_Identification/citation//citedResponsibleParty//name [role = one of {author,coAuthor, originator, editor}] === relatedObject|relatedInfo party/name where relation=author
+
+{
+  "concepts": {
+    "modelA": "ISO19115-1",
+    "modelB": "RIF-CS",
+    "conceptA": "'MD_Identification.citation.'\regex(.*)'citedResponsibleParty.'\regex(.*)'name'"
+    "conceptB": "\union(\union('relatedObject','relatedInfo'),'party.name')"
+  },
+  "condition": [
+  {
+    "target":"modelA",
+    "operator":"in",
+    "left":"'MD_Identification.citation.'\regex(.*)'citedResponsibleParty.'\regex(.*)'role'"
+    "right":["author","coAuthor","originator","editor"]
+  },
+  {
+    "target":"modelB",
+    "operator":"=",
+    "left":"'\value(relation)'"
+    "right":"author"
+  }
+  ],
+  "relation": {
+    "operator": "equal"
+  }
+  "function":{}
+  }
+}
+
+
+
+
+
+
+
+

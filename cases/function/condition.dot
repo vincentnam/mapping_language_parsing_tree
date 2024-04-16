@@ -1,0 +1,30 @@
+digraph  {
+rankdir=LR;
+"0__expression" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=expression, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_name" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_name, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_name__value" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=value, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_param, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_name" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_name, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_name__attr" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=attr, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_param, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param__function_param" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_param, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param__function_param_1" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_param_1, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param__function_param_1__type" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=type, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param__function_param__path" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=path, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__function__function_param__function__function_param__function_param__path__collection.description" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label="collection.description", margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression" -> "0__expression__function"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function" -> "0__expression__function__function_name"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function" -> "0__expression__function__function_param"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_name" -> "0__expression__function__function_name__value"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param" -> "0__expression__function__function_param__function"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function" -> "0__expression__function__function_param__function__function_name"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function" -> "0__expression__function__function_param__function__function_param"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_name" -> "0__expression__function__function_param__function__function_name__attr"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_param" -> "0__expression__function__function_param__function__function_param__function_param"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_param" -> "0__expression__function__function_param__function__function_param__function_param_1"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_param__function_param" -> "0__expression__function__function_param__function__function_param__function_param__path"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_param__function_param_1" -> "0__expression__function__function_param__function__function_param__function_param_1__type"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__function__function_param__function__function_param__function_param__path" -> "0__expression__function__function_param__function__function_param__function_param__path__collection.description"  [arrowhead=none, key=0, penwidth="2.0"];
+}

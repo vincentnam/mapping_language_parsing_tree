@@ -1,0 +1,9 @@
+
+expression:
+  function:
+    function_name: conversion_dollar_euro
+    function_param:
+      function:
+        function_name: value
+        function_param:
+          path: 'o2:priceInEuro'

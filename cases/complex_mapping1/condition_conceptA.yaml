@@ -1,0 +1,13 @@
+
+expression:
+  path:
+    path:
+      path: 'MD_Identification.citation.'
+      function:
+        function_name: regex
+        function_param: .*
+      path_1: 'citedResponsibleParty.'
+    function_1:
+      function_name_1: regex
+      function_param_1: .*
+    path_2: 'role'

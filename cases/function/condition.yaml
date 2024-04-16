@@ -1,0 +1,11 @@
+
+expression:
+  function:
+    function_name: value
+    function_param:
+      function:
+        function_name: attr
+        function_param:
+          function_param:
+            path: 'collection.description'
+          function_param_1: type

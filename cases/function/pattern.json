@@ -1,0 +1,26 @@
+{
+  "concepts": {
+    "modelA": "RIF-CS",
+    "modelB": "DCATv3",
+    "conceptA": "collection.description",
+    "conceptB": "dcterms:description"
+  },
+  "condition":[
+    {
+      "left": "\value(\attr('collection.description',type))",
+      "operator": "=",
+      "right": "brief"
+    },
+    {
+      "left": "\value(\attr('collection.description',type))",
+      "operator": "=",
+      "right": "full"
+    }
+  ],
+  "relation": {
+    "operator": "equal"
+  },
+  "function": {
+
+  }
+}

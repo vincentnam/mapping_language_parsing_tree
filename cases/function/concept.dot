@@ -1,0 +1,24 @@
+digraph  {
+rankdir=LR;
+"0__expression" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=expression, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=path, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__path" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=path, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__path__MD_identification.citation" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label="MD_identification.citation", margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__function" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__path_1" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=path_1, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__path_1__.title" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=".title", margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__function__function_name" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_name, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__function__function_name__regex" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=regex, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__function__function_param" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=function_param, margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression__path__function__function_param__.*" [fillcolor="#fafafa", fontname="Fira Mono", fontsize=10, label=".*", margin="0.3,0.1", penwidth="2.0", shape=rounded, style=rounded];
+"0__expression" -> "0__expression__path"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path" -> "0__expression__path__path"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path" -> "0__expression__path__function"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path" -> "0__expression__path__path_1"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path__path" -> "0__expression__path__path__MD_identification.citation"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path__function" -> "0__expression__path__function__function_name"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path__function" -> "0__expression__path__function__function_param"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path__path_1" -> "0__expression__path__path_1__.title"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path__function__function_name" -> "0__expression__path__function__function_name__regex"  [arrowhead=none, key=0, penwidth="2.0"];
+"0__expression__path__function__function_param" -> "0__expression__path__function__function_param__.*"  [arrowhead=none, key=0, penwidth="2.0"];
+}
